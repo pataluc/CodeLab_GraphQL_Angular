@@ -30,4 +30,4 @@ jobs:
             - ./node_modules
       - run:
         - name: test
-        - command: echo 'no unit tests'
+        - command: 'echo no unit tests'
