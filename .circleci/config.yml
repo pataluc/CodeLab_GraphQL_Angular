@@ -22,9 +22,15 @@ jobs:
       - restore_cache:
           key: dependency-cache-{{ checksum "package.json" }}
       - run:
-          name: install-npm-wee
-          command: npm install
+          name: install dependecies for back-end
+          command: cd back && npm install
       - save_cache:
           key: dependency-cache-{{ checksum "package.json" }}
           paths:
             - ./node_modules
+      - run:
+          name: run tests for back-end
+          command: cd back && npm test
+      - run:
+          name: start back-end
+          command: cd back && npm start
