@@ -20,14 +20,14 @@ jobs:
       - checkout
 
       - restore_cache:
-          key: cd back && dependency-cache-{{ checksum "package.json" }}
+          key: dependency-cache-{{ checksum "back/package.json" }}
       - run:
           name: install dependecies for back-end
           command: cd back && npm install
       - save_cache:
-          key: cd back && dependency-cache-{{ checksum "package.json" }}
+          key: dependency-cache-{{ checksum "back/package.json" }}
           paths:
-            - ./back/node_modules
+            - ./node_modules
       - run:
           name: run tests for back-end
           command: cd back && npm test
