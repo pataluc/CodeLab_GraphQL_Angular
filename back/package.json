@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon --inspect=0.0.0.0:9229 --watch \"src/**/*.js\" --exec \"webpack --progress --colors && node --inspect ./dist/server.js\"",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 0"
   },
   "repository": {
     "type": "git",
