@@ -1,10 +1,10 @@
 let messages = []
 
-export function addMessage(message) {
+module.exports.addMessage = function(message) {
     return messages[messages.push(message) - 1]
 }
 
-export function getMessages() {
+module.exports.getMessages = function() {
     return messages
 }
 

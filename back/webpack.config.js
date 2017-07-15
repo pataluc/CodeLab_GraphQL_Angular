@@ -19,7 +19,8 @@ module.exports = {
         use: {
             loader: 'babel-loader',
             options: {
-            presets: ['es2015']
+                presets: ['es2015'],
+                plugins: ["transform-es2015-modules-commonjs"]
             }
         }
         }
