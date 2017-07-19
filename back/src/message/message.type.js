@@ -1,6 +1,6 @@
 import messageService from './message.service'
 
-const MessageField = `
+export const MessageField = `
         pseudo: String!
         firstName: String!
         lastName: String!
@@ -10,7 +10,7 @@ const MessageField = `
         status: String!
 `
 
-const MessageTypes = `
+export const MessageTypes = `
     type Message {
         ${MessageField}
     }
@@ -20,15 +20,15 @@ const MessageTypes = `
     }
 `
 
-const MessageQueries = `
+export const MessageQueries = `
     getMessages : [Message]
 `
 
-const MessageMutations = `
+export const MessageMutations = `
     saveMessage(message: MessageInput): Message
 `
 
-const MessageResolvers = {
+export const MessageResolvers = {
     getMessages: () => {
         return messageService.getMessages()
     },
@@ -36,5 +36,3 @@ const MessageResolvers = {
         return messageService.addMessage(message)
     }
 }
-
-module.exports = {MessageTypes, MessageQueries, MessageMutations, MessageResolvers}
