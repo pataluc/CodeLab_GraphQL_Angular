@@ -4,7 +4,7 @@
 #
 version: 2
 jobs:
-  build:
+  back:
     docker:
       # specify the version you desire here
       - image: circleci/node:7.10
@@ -31,3 +31,37 @@ jobs:
       - run:
           name: run tests for back-end
           command: cd back && npm test
+
+  front:
+    # specify the version you desire here
+    - image: circleci/node:7.10
+
+    # Specify service dependencies here if necessary
+    # CircleCI maintains a library of pre-built images
+    # documented at https://circleci.com/docs/2.0/circleci-images/
+    # - image: circleci/mongo:3.4.4
+
+  working_directory: ~/repo
+
+  steps:
+    - checkout
+
+    - restore_cache:
+        key: dependency-cache-{{ checksum "front/package.json" }}
+    - run:
+        name: install dependecies for front-end
+        command: cd front && npm install
+    - save_cache:
+        key: dependency-cache-{{ checksum "front/package.json" }}
+        paths:
+          - ./front/node_modules
+    - run:
+        name: run tests for front-end
+        command: cd front && npm test
+
+workflows:
+  version: 2
+  back_and_front:
+    jobs:
+      - back
+      - front
