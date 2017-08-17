@@ -1,0 +1,23 @@
+<div class="row" *ngIf="even;else odd">
+    <div class="col-2">
+        <img src="http://lorempixel.com/50/50/people" [ngClass]="{ 'float-right': odd }" alt="..." class="rounded-circle">
+    </div>
+    <div class="col-10">
+        <div class="alert alert-dark" role="alert">
+            {{ message.content }}
+        </div>
+    </div>
+</div>
+
+<ng-template #odd>
+    <div class="row">
+        <div class="col-10">
+            <div class="alert alert-info" role="alert">
+                {{ message.content }}
+            </div>
+        </div>
+        <div class="col-2">
+            <img src="http://lorempixel.com/50/50/people" class="rounded-circle">
+        </div>
+    </div>
+</ng-template>
