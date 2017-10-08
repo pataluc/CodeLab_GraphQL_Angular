@@ -18,6 +18,7 @@ import { ApolloClient } from 'apollo-client'
 import { HttpLinkModule, HttpLink } from 'apollo-angular-link-http'
 import { InMemoryCache } from 'apollo-cache-inmemory'
 
+
 const appRoutes: Routes = [
   { path: '', redirectTo: 'tchat', pathMatch: 'full' },
   { path: 'tchat', component: TchatComponent },
