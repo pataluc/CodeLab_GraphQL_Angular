@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { PanelModule } from 'primeng/primeng'
 import { RouterModule, Routes } from '@angular/router'
+import { FormsModule } from '@angular/forms'
 
 import { AppComponent } from './app.component'
 import { TchatComponent } from './tchat/tchat.component'
@@ -29,6 +30,7 @@ const appRoutes: Routes = [
     BrowserModule,
     BrowserAnimationsModule,
     PanelModule,
+    FormsModule,
     RouterModule.forRoot(appRoutes)
   ],
   providers: [

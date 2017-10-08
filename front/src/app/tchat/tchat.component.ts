@@ -10,6 +10,11 @@ export class TchatComponent {
 
   constructor(private tchatService : TchatService) {}
 
+  public message = ""
   public messages = this.tchatService.getMessages()
-  
+
+  sendMessage() {
+    console.log(this.message)
+    this.message = ""
+  } 
 }
