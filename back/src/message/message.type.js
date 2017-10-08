@@ -3,7 +3,6 @@ import * as messageService from './message.service'
 export const MessageField = `
     content: String!
     localisation: String!
-    date: Float!
     status: String!
 `
 
@@ -16,6 +15,7 @@ export const SenderField = `
 export const MessageTypes = `
     type Message {
         id: ID!
+        date: Float!
         sender: Sender!
         ${MessageField}
     }

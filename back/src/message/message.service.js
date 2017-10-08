@@ -12,6 +12,7 @@ source.subscribe(message => messages.push(message))
  
 export function addMessage(message) {
     message.id = id++
+    message.date = Date.now()
     if(!coincoinSubscription || coincoinSubscription.closed) {
         coincoinSubscription = source.switchMap(() => Observable.interval(1000)).first().subscribe(() => addCoinCoin())
     }
