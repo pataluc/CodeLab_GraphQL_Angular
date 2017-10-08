@@ -5,11 +5,13 @@ import 'rxjs/add/operator/switchMap'
 let messages = []
 let source = new Subject()
 let coincoinSubscription
+let id = 0
 
 addCoinCoin()
 source.subscribe(message => messages.push(message))
  
 export function addMessage(message) {
+    message.id = id++
     if(!coincoinSubscription || coincoinSubscription.closed) {
         coincoinSubscription = source.switchMap(() => Observable.interval(1000)).first().subscribe(() => addCoinCoin())
     }
@@ -27,6 +29,7 @@ export function resetMessages() {
 
 function addCoinCoin() {
     messages.push({
+        id: id++,
         sender : {
             pseudo: 'Canard Man',
             firstName: 'Frédéric',

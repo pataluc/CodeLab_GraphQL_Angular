@@ -15,6 +15,7 @@ export const SenderField = `
 
 export const MessageTypes = `
     type Message {
+        id: ID!
         sender: Sender!
         ${MessageField}
     }
