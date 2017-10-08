@@ -1,22 +1,37 @@
-import messageService from './message.service'
+import * as messageService from './message.service'
 
 export const MessageField = `
-        pseudo: String!
-        firstName: String!
-        lastName: String!
-        message: String!
-        localisation: String!
-        date: Float!
-        status: String!
+    content: String!
+    localisation: String!
+    date: Float!
+    status: String!
+`
+
+export const SenderField = `
+    pseudo: String!
+    firstName: String!
+    lastName: String!
 `
 
 export const MessageTypes = `
     type Message {
+        sender: Sender!
         ${MessageField}
     }
 
     input MessageInput {
+        sender: SenderInput!
         ${MessageField}
+    }
+`
+
+export const SenderTypes = `
+    type Sender {
+        ${SenderField}
+    }
+
+    input SenderInput {
+        ${SenderField}
     }
 `
 

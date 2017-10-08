@@ -6,6 +6,7 @@ import { RouterModule, Routes } from '@angular/router'
 
 import { AppComponent } from './app.component'
 import { TchatComponent } from './tchat/tchat.component'
+import { TchatService } from './tchat/tchat.service'
 import { MessageComponent } from './message/message.component'
 import { NavBarComponent } from './navbar/navbar.component'
 import { HistoryComponent } from './history/history.component'
@@ -30,7 +31,9 @@ const appRoutes: Routes = [
     PanelModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [],
+  providers: [
+    TchatService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

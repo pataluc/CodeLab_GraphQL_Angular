@@ -5,7 +5,7 @@ import {schema, root} from './graphql/graphql'
 
 const app = express()
 
-app.use('/graphql', graphqlHTTP({
+app.use('/api/graphql', graphqlHTTP({
   schema: schema,
   rootValue: root,
   graphiql: true,

@@ -1,9 +1,10 @@
 import { graphql, buildSchema } from 'graphql';
-import { MessageTypes, MessageQueries, MessageMutations, MessageResolvers } from '../message/message.type'
+import { MessageTypes, SenderTypes, MessageQueries, MessageMutations, MessageResolvers } from '../message/message.type'
 
 // Construct a schema, using GraphQL schema language
 export const schema = buildSchema(`
     ${MessageTypes}
+    ${SenderTypes}
 
     type Query {
         ${MessageQueries}
