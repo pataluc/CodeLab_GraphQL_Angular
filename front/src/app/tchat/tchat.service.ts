@@ -1,41 +1,27 @@
 import { Injectable } from '@angular/core'
+import { Apollo } from 'apollo-angular'
+import gql from 'graphql-tag'
 
 @Injectable()
 export class TchatService {
 
-    public messages = [
-        {
-        sender: {
-            pseudo: 'Antoine',
-            avatar: 'http://lorempixel.com/50/50/people'
-        },
-        content: 'Hello :)'
-        },
-        {
-        sender: {
-            pseudo: 'Canard Man',
-            avatar: 'http://lorempixel.com/50/50/people'
-        },
-        content: 'Coin Coin'
-        },
-        {
-        sender: {
-            pseudo: 'Antoine',
-            avatar: 'http://lorempixel.com/50/50/people'
-        },
-        content: 'Ca va?'
-        },
-        {
-        sender: {
-            pseudo: 'Canard Man',
-            avatar: 'http://lorempixel.com/50/50/people'
-        },
-        content: 'Coin Coin'
-        }
-    ]
+    constructor(public apollo: Apollo) {}
 
     getMessages() {
-        return this.messages
+        return this.apollo.query({
+            query: gql`{
+                getMessages {
+                    sender {
+                        pseudo
+                        firstName
+                        lastName
+                    }
+                    content
+                    localisation
+                    date
+                    status
+                }
+            }`
+        })
     }
-
 }

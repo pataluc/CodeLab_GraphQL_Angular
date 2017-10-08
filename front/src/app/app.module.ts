@@ -12,11 +12,25 @@ import { MessageComponent } from './message/message.component'
 import { NavBarComponent } from './navbar/navbar.component'
 import { HistoryComponent } from './history/history.component'
 
+import { ApolloModule } from 'apollo-angular'
+import { ApolloClient, createNetworkInterface } from 'apollo-client'
+
 const appRoutes: Routes = [
   { path: '', redirectTo: 'tchat', pathMatch: 'full' },
   { path: 'tchat', component: TchatComponent },
   { path: 'history', component: HistoryComponent }
 ]
+
+const apolloClient = new ApolloClient({
+   networkInterface: createNetworkInterface({
+       uri: 'api/graphql'
+   })
+})
+
+export function provideApolloClient(): ApolloClient {
+  return apolloClient;
+}
+
 
 @NgModule({
   declarations: [
@@ -31,7 +45,8 @@ const appRoutes: Routes = [
     BrowserAnimationsModule,
     PanelModule,
     FormsModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    ApolloModule.forRoot(provideApolloClient)
   ],
   providers: [
     TchatService
