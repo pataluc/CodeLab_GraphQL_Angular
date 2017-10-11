@@ -55,4 +55,3 @@ gql`mutation saveMessage($message: MessageInput!) {
         status
     }
 }`
-
