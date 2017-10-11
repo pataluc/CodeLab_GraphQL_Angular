@@ -1,6 +1,6 @@
 <p-panel header="T'chat">
     <div class="row" 
-         [ngClass]="{ 'justify-content-start': message.pseudo == 'Canard Man', 'justify-content-end': message.pseudo != 'Canard Man' }"
+         [ngClass]="{ 'justify-content-start': message.sender.pseudo == 'Canard Man', 'justify-content-end': message.sender.pseudo != 'Canard Man' }"
          *ngFor="let message of messages; let odd=odd; let even=even;">
       <message 
         class="col-6"
