@@ -1,6 +1,6 @@
-<div class="row" *ngIf="even;else odd">
+<div class="row" *ngIf="message.pseudo == 'Canard Man';else userMessage">
     <div class="col-2">
-        <img src="http://lorempixel.com/50/50/people" [ngClass]="{ 'float-right': odd }" alt="..." class="rounded-circle">
+        <img src="assets/canardMan.png" height="50" width="50" [ngClass]="{ 'float-right': true }" alt="..." class="rounded-circle">
     </div>
     <div class="col-10">
         <div class="alert alert-dark" role="alert">
@@ -9,7 +9,7 @@
     </div>
 </div>
 
-<ng-template #odd>
+<ng-template #userMessage>
     <div class="row">
         <div class="col-10">
             <div class="alert alert-info" role="alert">

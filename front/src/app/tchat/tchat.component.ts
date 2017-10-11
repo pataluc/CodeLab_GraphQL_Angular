@@ -10,11 +10,13 @@ export class TchatComponent {
 
   constructor(private tchatService : TchatService) {}
 
+  public spamGuard = false
   public messageContent = ""
   public messages = this.tchatService.getMessages()
 
   sendMessage() {
     console.log(this.messageContent)
+    this.spamGuard = true
     this.messageContent = ""
   } 
 }
