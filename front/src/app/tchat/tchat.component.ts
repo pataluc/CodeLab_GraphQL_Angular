@@ -30,7 +30,7 @@ export class TchatComponent implements OnInit {
       },
       content: this.messageContent,
       localisation: 'Nantes',
-      status: 'OK'
+      status: 'PENDING'
     }
     this.tchatService.saveMessage(message).subscribe(() => {
       this.spamGuard = false
