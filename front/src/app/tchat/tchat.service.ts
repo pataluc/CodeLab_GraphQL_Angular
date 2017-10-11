@@ -8,20 +8,23 @@ export class TchatService {
     constructor(public apollo: Apollo) {}
 
     getMessages() {
-        return this.apollo.query({
-            query: gql`{
-                getMessages {
-                    sender {
-                        pseudo
-                        firstName
-                        lastName
-                    }
-                    content
-                    localisation
-                    date
-                    status
-                }
-            }`
+        return this.apollo.watchQuery({
+            query: getRequest
         })
     }
 }
+
+const getRequest = 
+gql`{
+    getMessages {
+        sender {
+            pseudo
+            firstName
+            lastName
+        }
+        content
+        localisation
+        date
+        status
+    }
+}`
