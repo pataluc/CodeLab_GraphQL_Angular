@@ -17,6 +17,7 @@ export function addMessage(message) {
     }
     message.id = id++
     message.date = Date.now()
+    message.status = "OK"
     if((!coincoinSubscription || coincoinSubscription.closed) && config.enableCoin) {
         coincoinSubscription = source.switchMap(() => Observable.interval(1000)).first().subscribe(() => addCoinCoin())
     }
