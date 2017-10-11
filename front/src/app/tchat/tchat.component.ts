@@ -21,9 +21,22 @@ export class TchatComponent implements OnInit {
   }
 
   sendMessage() {
-    console.log(this.messageContent)
     this.spamGuard = true
-    this.messageContent = ""
+    const message = {
+      sender: {
+        pseudo: 'Toto',
+        firstName: 'Jean-Michel',
+        lastName: 'Graphi'
+      },
+      content: this.messageContent,
+      localisation: 'Nantes',
+      status: 'OK'
+    }
+    this.tchatService.saveMessage(message).subscribe(() => {
+      this.spamGuard = false
+      this.messageContent = ""
+    })
+    
   } 
   
 }
