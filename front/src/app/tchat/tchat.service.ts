@@ -8,7 +8,7 @@ export class TchatService {
     constructor(public apollo: Apollo) {}
 
     getMessages() {
-        return this.apollo.watchQuery({
+        return this.apollo.query({
             query: getRequest
         })
     }
