@@ -21,6 +21,19 @@ export class TchatService {
                 const data : any = store.readQuery({ query : getRequest})
                 data.getMessages.push(saveMessage)
                 store.writeQuery({ query: getRequest, data})
+            },
+            optimisticResponse: {
+                __typename: 'Mutation',
+                saveMessage : {
+                    __typename: "Message",
+                    ...message,
+                    sender : {
+                        __typename: "Sender",
+                        ...message.sender
+                    },
+                    status: "PENDING",
+                    date: Date.now
+                }
             }
         })
     }
