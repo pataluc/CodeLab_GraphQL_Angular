@@ -13,7 +13,7 @@
     <div class="row">
         <div class="col-10">
             <div class="alert alert-info" role="alert">
-                {{ message.content }}
+                {{ message.content }} <i *ngIf="message.status == 'PENDING'" class="pull-right fa fa-spinner fa-spin fa-fw"></i><i *ngIf="message.status == 'OK'" class="pull-right fa fa-check"></i>
             </div>
         </div>
         <div class="col-2">
