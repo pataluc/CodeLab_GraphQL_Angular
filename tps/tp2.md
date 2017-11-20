@@ -1,8 +1,8 @@
-##TP2 : Modifier une donnée et mettre à jour les données à afficher
+## TP2 : Modifier une donnée et mettre à jour les données à afficher
 
 Dans cette deuxième partie nous allons envoyer un message et l’enregistrer via graphql. Pour réaliser cela, nous allons modifier le service `tchat.service.ts` afin de lui ajouter une fonction permettant de sauvegarder un message via graphql. Ensuite nous allons modifier le composant `tchat.component.ts` pour modifier la fonction d’envoi.
 
-####Etape 1 : Création de la requête
+#### Etape 1 : Création de la requête
 
 Si on regarde les méthodes existantes de notre api graphql via l’outil graphiql et sa documentation (http://localhost:3000/api/graphql), on peut observer l’existence de la méthode suivante dans les mutations :
  
@@ -31,7 +31,7 @@ Maintenant connectez-vous à graphiql (http://localhost:3000/api/graphql) et ten
 
 N'hésitez pas à appuyer sur ctrl + space pour vous aider avec l’autocomplétion.
 
-####Etape 2 : Modification du service
+#### Etape 2 : Modification du service
 
 Le service `tchat.service.ts` a besoin d’une nouvelle fonction prenant en paramètre un message et dont l’objectif est d’envoyer une requête graphql pour la sauvegarde de celui-ci.
 
@@ -41,7 +41,7 @@ saveMessage(message)
 
 L’objet `apollo` que nous avons injecté plus tôt contient une fonction mutation qui va permettre d’envoyer une requête de mutation.  Cette fois-ci nous ne vous donnerons pas le squelette de la fonction. Le lien suivant pourra vous servir : http://dev.apollodata.com/angular2/mutations.html#calling-mutations
 
-####Etape 3 : Modification du composant
+#### Etape 3 : Modification du composant
 
 Modifier le composant `tchat.component.ts` pour appeler le service d’envoi de message à partir de la méthode `sendMessage`. La variable `spamGuard` permet de bloquer la saisie d’un nouveau message le temps de la requête. Un fois votre requête d’ajout de message terminé il faudra assigner `false` à `spamGuard` et une chaîne de caractère vide à message. Comme pour `getMessages`, la méthode `mutate` d’apollo vous renvoie un observable. Votre service vous renvoie donc un observable.
 
@@ -68,7 +68,7 @@ Nous vous conseillons de regarder les requêtes qui sont réalisée par votre na
 
 Dans un premier temps, lorsque vous aurez réussi votre requête, votre message ne s'affichera pas. Vous allez être forcé de recharger votre page pour voir votre message.
 
-####Etape 4 : Affichage du nouveau message
+#### Etape 4 : Affichage du nouveau message
 
 Recharger la page pour voir les nouveaux messages n’est pas acceptable. Ils existent plusieurs façons permettant de palier à ce problème. Nous allons voir une de ces solutions dans cette étape.
 

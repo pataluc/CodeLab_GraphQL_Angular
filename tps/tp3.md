@@ -1,4 +1,4 @@
-##TP3 : Modification et utilisation du cache / store
+## TP3 : Modification et utilisation du cache / store
 
 Lors de l’envoi d’un message, deux requêtes sont envoyées au serveur. La première envoie le message tandis que la seconde “refetch” les données pour les mettre à jour. Si on regarde de plus près le contenu de la première requête on remarquera qu’il contient le message envoyé avec le status “OK” en réponse (acquittement du message). Une optimisation possible va être d’ajouter le message reçu directement dans le store sans envoyer une nouvelle requête au serveur pour récupérer tous les message. Ainsi le message envoyé s’affichera lorsque l'acquittement sera reçu.
 

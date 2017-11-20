@@ -1,4 +1,4 @@
-##TP4 : Optimistic UI
+## TP4 : Optimistic UI
 Dans ce TP, nous allons simuler la latence vers le serveur. Pour celà dans l’application back-end, veuillez modifier le fichier config.js à la  racine du projet. 
 
 ```javascript
