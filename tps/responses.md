@@ -1,7 +1,7 @@
 # Réponses :
-##TP1 : Récupérer et afficher des données
-###TP1.2 : Envoi et récéption de la requête Apollo
-####Etape 1 : Modification du service
+## TP1 : Récupérer et afficher des données
+### TP1.2 : Envoi et récéption de la requête Apollo
+#### Etape 1 : Modification du service
 
 ```javascript
 getMessages() {
@@ -26,7 +26,7 @@ gql`{
 }`
 ```
 
-####Etape 2 : Modification du composant
+#### Etape 2 : Modification du composant
 
 ```javascript
 import { Component, OnInit } from '@angular/core';
@@ -51,8 +51,8 @@ export class TchatComponent implements OnInit {
 }
 ```
 
-##TP2 : Modifier une donnée et mettre à jour les données à afficher
-####Etape 1 : Création de la requête
+## TP2 : Modifier une donnée et mettre à jour les données à afficher
+#### Etape 1 : Création de la requête
 
 Request :
 
@@ -89,7 +89,7 @@ Query param :
 }
 ```
 
-####Etape 2 : Modification du service
+#### Etape 2 : Modification du service
 ```javascript
 saveMessage(message) {
     return this.apollo.mutate({
@@ -114,7 +114,7 @@ gql`mutation saveMessage($message: MessageInput!) {
 }`
 ```
 
-####Etape 3 : Modification du composant
+#### Etape 3 : Modification du composant
 ```javascript
 sendMessage() {
     this.spamGuard = true
@@ -135,7 +135,7 @@ sendMessage() {
 }
 ```
 
-####Etape 4 : Affichage du nouveau message
+#### Etape 4 : Affichage du nouveau message
 
 ```javascript
 saveMessage(message) {
@@ -149,7 +149,7 @@ saveMessage(message) {
 }
 ```
 
-##TP3 : Modification et utilisation du cache / store
+## TP3 : Modification et utilisation du cache / store
 
 ```javascript
 saveMessage(message) {
@@ -165,7 +165,7 @@ saveMessage(message) {
 }
 ```
 
-##TP4 : Optimistic UI
+## TP4 : Optimistic UI
 
 ```javascript
 saveMessage(message) {
