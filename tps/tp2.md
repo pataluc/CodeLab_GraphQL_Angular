@@ -52,7 +52,7 @@ sendMessage() {
     this.spamGuard = true
     const message = {
         sender: {
-            pseudo: SuperDev,
+            pseudo: 'SuperDev',
             firstName: 'Jean-Michel',
             lastName: 'Graphi'
         },
@@ -74,6 +74,6 @@ Recharger la page pour voir les nouveaux messages n’est pas acceptable. Ils ex
 
 Il est possible lors de l’exécution d’une mutation de renseigner des propriétés supplémentaires en plus de query. Ces propriétés permettent d’enrichir le comportement voulu. L’une de ces propriétés est refetchQueries et permet de spécifier une requête à exécuter une fois que le résultat de la mutation est reçu. Ici nous allons nous en servir pour aller rechercher les messages une fois la mutation terminé.
 
-Le liens suivant vous sera utile pour comprendre comment renseigner le paramètre refetchQueries : http://dev.apollodata.com/react/cache-updates.html#refetchQueries
+Le liens suivant vous sera utile pour comprendre comment renseigner le paramètre refetchQueries : https://www.apollographql.com/docs/react/features/cache-updates.html#refetchQueries
 
 Enfin il ne faut pas oublier de changer l’appel de la fonction `query` de `getMessage` dans `tchat.service.ts` en `watchQuery`. La différence et que query est un observable qui se termine après que le premier résultat est été trouvé tandis que `watchQuery` écoute continuellement les valeurs enregistrées dans le store.
