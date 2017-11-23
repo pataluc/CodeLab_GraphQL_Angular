@@ -15,7 +15,7 @@ export class TchatComponent implements OnInit {
   constructor(private tchatService : TchatService) {}
 
   ngOnInit() {
-    this.tchatService.getMessages().subscribe( ({ data : { getMessages }  } : any) => {
+    this.tchatService.getMessages().valueChanges.subscribe( ({ data : { getMessages }  } : any) => {
       this.messages = getMessages
     })
   }
