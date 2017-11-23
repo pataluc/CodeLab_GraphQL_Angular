@@ -17,9 +17,11 @@ export class TchatService {
         return this.apollo.mutate({
             mutation: saveRequest,
             variables: { message },
-            refetchQueries: [{ 
-                query: getRequest
-            }]
+            update: (store, {data: { saveMessage }}) => {
+                const data : any = store.readQuery({ query : getRequest})
+                data.getMessages.push(saveMessage)
+                store.writeQuery({ query: getRequest, data})
+            }
         })
     }
 }
