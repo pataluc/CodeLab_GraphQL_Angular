@@ -56,21 +56,41 @@ Dans un premier temps il faut mettre en place l’utilisation du client Apollo d
 
 #### Etape 1 : Installer les package npm
 
-Installer apollo-client, apollo-angular et graphql-tag sur votre projet : `npm install apollo-client apollo-angular graphql-tag --save`
+Installer apollo-client, apollo-angular et graphql-tag sur votre projet : `npm install apollo-client apollo-angular apollo-cache-inmemory apollo-angular-link-http graphql-tag --save`
  
 #### Etape 2 : Mise en place du client Apollo
 
-Dans la configuration de votre application, il va falloir fournir le module `ApolloModule`. Ce module attend une instance de la classe `ApolloClient` qui permet d’envoyer des requêtes au serveur. L’instanciation doit se faire ainsi dans `app.module.ts`.
+Dans la configuration de votre application, il va falloir fournir trois module `ApolloModule`, `HttpLinkModule`, `HttpClientModule`. Ensuite, créer une instance d'apollo au démarrage de l'application.L’instanciation doit se faire ainsi dans `app.module.ts`.
 
 ```javascript
+import { HttpClientModule } from '@angular/common/http'
+import { ApolloModule, Apollo } from 'apollo-angular'
 import { ApolloClient } from 'apollo-client'
-import { HttpLink } from 'apollo-link-http'
 import { InMemoryCache } from 'apollo-cache-inmemory'
+import { HttpLinkModule, HttpLink } from 'apollo-angular-link-http'
 
-const apolloClient = new ApolloClient({
-   link: new HttpLink({ uri: 'api/graphql' }),
-   cache: new InMemoryCache()
+@NgModule({
+  declarations: [...],
+  imports: [
+    HttpClientModule,
+    HttpLinkModule,
+    ApolloModule,
+    ...
+  ],
+  providers: [...],
+  bootstrap: [...]
 })
+export class AppModule { 
+  constructor(
+    apollo: Apollo,
+    httpLink: HttpLink
+  ) {
+    apollo.create({
+      link: httpLink.create({ uri: 'api/graphql' }),
+      cache: new InMemoryCache()
+    })
+  }
+}
 ```
 
 L’option `link` permet de signaler où angular devra envoyer un requête pour interroger le serveur graphql. Dans notre cas l’adresse est http://localhost:3000/api/graphql, mais un proxy bind toute requête ayant le pattern `/api/*` au port 3000. 
