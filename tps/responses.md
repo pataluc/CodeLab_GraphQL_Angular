@@ -149,6 +149,15 @@ saveMessage(message) {
 }
 ```
 
+#### Etape 5 : Modification du composant
+```javascript
+  ngOnInit() {
+    this.tchatService.getMessages().valueChanges.subscribe(({ data }: any) => {
+      this.messages = data.getMessages
+    })
+  }
+```
+
 ## TP3 : Modification et utilisation du cache / store
 
 ```javascript
