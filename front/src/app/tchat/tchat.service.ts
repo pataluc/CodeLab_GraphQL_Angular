@@ -6,28 +6,28 @@ export class TchatService {
     public messages = [
         {
         sender: {
-            lastName: 'Antoine',
+            pseudo: 'Antoine',
             avatar: 'http://lorempixel.com/50/50/people'
         },
         content: 'Hello :)'
         },
         {
         sender: {
-            lastName: 'Canard Man',
+            pseudo: 'Canard Man',
             avatar: 'http://lorempixel.com/50/50/people'
         },
         content: 'Coin Coin'
         },
         {
         sender: {
-            lastName: 'Antoine',
+            pseudo: 'Antoine',
             avatar: 'http://lorempixel.com/50/50/people'
         },
         content: 'Ca va?'
         },
         {
         sender: {
-            lastName: 'Canard Man',
+            pseudo: 'Canard Man',
             avatar: 'http://lorempixel.com/50/50/people'
         },
         content: 'Coin Coin'
