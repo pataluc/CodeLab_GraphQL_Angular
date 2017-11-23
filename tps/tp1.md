@@ -63,16 +63,17 @@ Installer apollo-client, apollo-angular et graphql-tag sur votre projet : `npm i
 Dans la configuration de votre application, il va falloir fournir le module `ApolloModule`. Ce module attend une instance de la classe `ApolloClient` qui permet d’envoyer des requêtes au serveur. L’instanciation doit se faire ainsi dans `app.module.ts`.
 
 ```javascript
-import { ApolloClient, createNetworkInterface } from 'apollo-client'
+import { ApolloClient } from 'apollo-client'
+import { HttpLink } from 'apollo-link-http'
+import { InMemoryCache } from 'apollo-cache-inmemory'
 
 const apolloClient = new ApolloClient({
-   networkInterface: createNetworkInterface({
-       uri: 'api/graphql'
-   })
+   link: new HttpLink({ uri: 'api/graphql' }),
+   cache: new InMemoryCache()
 })
 ```
 
-L’option `networkInterface` permet de signaler où angular devra envoyer un requête pour interroger le serveur graphql. Dans notre cas l’adresse est http://localhost:3000/api/graphql, mais un proxy bind toute requête ayant le pattern `/api/*` au port 3000. 
+L’option `link` permet de signaler où angular devra envoyer un requête pour interroger le serveur graphql. Dans notre cas l’adresse est http://localhost:3000/api/graphql, mais un proxy bind toute requête ayant le pattern `/api/*` au port 3000. 
 
 ### TP1.2 : Envoi et récéption de la requête Apollo 
 
