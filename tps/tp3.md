@@ -13,7 +13,5 @@ L’objet store possède deux fonctions qui vont nous interesser :
  - `readQuery` : Permet d'accéder au store via la requête graphql voulu.
  - `writeQuery` : Permet d'écrire dans le store des résultats pour une requête donnée. Avec cette fonction vous allez en quelques sortes simuler la réponse.
 
-Aidez vous du lien suivant pour utilisé la propriété update dans votre code : http://dev.apollodata.com/react/cache-updates.html#directAccess
-
-Note : Bien que le lien soit pour l’api react, l’utilisation pour angular est identique. Le documentation angular n’est pas encore à jour sur ce point.
+Aidez vous du lien suivant pour utilisé la propriété update dans votre code : https://www.apollographql.com/docs/angular/features/caching.html#updating-the-cache-after-a-mutation
 
