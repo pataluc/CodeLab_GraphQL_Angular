@@ -111,7 +111,7 @@ export class TchatService {
 }
 ```
 
-La variable `messages` n’a plus lieux d’être, supprimez la. Il faut à présent modifier la méthode `getMessages` pour aller envoyer une requête le serveur graphql. Cela peut être réalisé via l’objet `apollo` injecté plus haut et la méthode `query` qui prend en paramètre la requête à exécuter. Attention la requête doit être formaté pour être comprise par  l’objet `apollo`. Pour cette raison il existe un formateur graphql appelé `gql`. Attention, nous vous conseillons de mettre votre requête dans une variable car dans la suite du TP elle sera réutilisé à différents endroits. Voici à quoi devrait ressembler votre méthode :
+La variable `messages` n’a plus lieux d’être, supprimez la. Il faut à présent modifier la méthode `getMessages` pour envoyer une requête au serveur graphql. Cela peut être réalisé via l’objet `apollo` injecté plus haut et la méthode `query` qui prend en paramètre la requête à exécuter. Attention la requête doit être formaté pour être comprise par  l’objet `apollo`. Pour cette raison il existe une fonction de templating `gql`. Attention, nous vous conseillons de mettre votre requête dans une variable car dans la suite du TP elle sera réutilisé à différents endroits. Voici à quoi devrait ressembler votre méthode :
 
 ```javascript
 import { Apollo } from 'apollo-angular'
@@ -131,7 +131,7 @@ export class TchatService {
 ```
 
 #### Etape 2 : Modification du composant
-Il ne reste plus qu'à modifier le composant pour afficher le résultat. La méthode `getMessages` du service retourne maintenant un `Observable`. Il y a donc plusieurs façon d’afficher les messages. Vous pouvez soit utiliser la pipe `async` mais cette méthode vous demandera de travailler le résultat de la requête au préalable, soit assigner le retour de la fonction dans une variable messages.
+Il ne reste plus qu'à modifier le composant pour afficher le résultat. La méthode `getMessages` du service retourne maintenant un `Observable`. Il y a donc plusieurs façon d’afficher les messages. Vous pouvez soit utiliser la pipe `async` mais cette méthode vous demandera de travailler le résultat de la requête au préalable, soit assigner le retour de la fonction `subscribe` dans une variable messages.
 
 Le résultat retourné par la requête est un objet de la forme suivante :
 
