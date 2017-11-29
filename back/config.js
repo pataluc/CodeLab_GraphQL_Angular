@@ -1,5 +1,5 @@
 module.exports = {
     enableCoin: false,
-    enableLatency: false,
+    enableLatency: true,
     latency: 2000
 }

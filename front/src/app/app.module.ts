@@ -5,6 +5,12 @@ import { PanelModule } from 'primeng/primeng'
 import { RouterModule, Routes } from '@angular/router'
 import { FormsModule } from '@angular/forms'
 
+import { HttpClientModule } from '@angular/common/http'
+import { ApolloModule, Apollo } from 'apollo-angular'
+import { ApolloClient } from 'apollo-client'
+import { InMemoryCache } from 'apollo-cache-inmemory'
+import { HttpLinkModule, HttpLink } from 'apollo-angular-link-http'
+
 import { AppComponent } from './app.component'
 import { TchatComponent } from './tchat/tchat.component'
 import { TchatService } from './tchat/tchat.service'
@@ -27,6 +33,9 @@ const appRoutes: Routes = [
     HistoryComponent
   ],
   imports: [
+    HttpClientModule,
+    HttpLinkModule,
+    ApolloModule,
     BrowserModule,
     BrowserAnimationsModule,
     PanelModule,
@@ -38,4 +47,15 @@ const appRoutes: Routes = [
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+
+export class AppModule {
+  constructor(
+    apollo: Apollo,
+    httpLink: HttpLink
+  ) {
+    apollo.create({
+      link: httpLink.create({uri: 'api/graphql'}),
+      cache: new InMemoryCache()
+    })
+  }
+}
