@@ -56,7 +56,7 @@ Dans un premier temps il faut mettre en place l’utilisation du client Apollo d
 
 #### Etape 1 : Installer les package npm
 
-Installer apollo-client, apollo-angular et graphql-tag sur votre projet : `npm install apollo-client apollo-angular apollo-cache-inmemory apollo-angular-link-http graphql-tag --save`
+Installer apollo-client, apollo-angular et graphql-tag sur votre projet : `npm install graphql apollo-client apollo-angular apollo-cache-inmemory apollo-angular-link-http graphql-tag --save`
  
 #### Etape 2 : Mise en place du client Apollo
 
